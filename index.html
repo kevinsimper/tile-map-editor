@@ -33,11 +33,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <table class="mapeditor">
-                            <tr ng-repeat="row in _mapSize.h track by $index">
+                            <tr ng-repeat="(rowkey, row) in data track by $index">
                                 <td 
-                                  ng-repeat="column in _mapSize.w track by $index" 
-                                  ng-style="{width: _tileSize.w, height: _tileSize.h, backgroundColor: swatches[data[row][column]]}" 
-                                  ng-click="changeCell($event, row, column)" ng-right-click="changeCell($event, row, column)" ng-mouseover="changeCell($event, row, column)"></td>
+                                  ng-repeat="(columnkey, column) in data[rowkey] track by $index" 
+                                  ng-style="{width: _tileSize.w, height: _tileSize.h, backgroundColor: swatches[column]}" 
+                                  ng-click="changeCell($event, rowkey, columnkey)" 
+                                  ng-right-click="changeCell($event, rowkey, columnkey)" 
+                                  ng-mouseover="changeCell($event, rowkey, columnkey)"></td>
                             </tr>
                         </table>
                         <textarea style="width: 100%;height: 120px" json-text ng-model="data"></textarea>

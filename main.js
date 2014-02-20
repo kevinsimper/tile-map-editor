@@ -99,7 +99,7 @@ tileEditor.controller('interfaceCtrl', ['$scope', function($scope){
       $scope.data[row][column] = parseInt($scope.current);
     }
     if($event.type == 'contextmenu' || rightIsDown){
-      $scope.data[row][column] = '';
+      $scope.data[row][column] = 0;
     }
   };
 
