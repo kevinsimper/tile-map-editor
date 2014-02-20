@@ -37,7 +37,7 @@
                                 <td 
                                   ng-repeat="(columnkey, column) in data[rowkey] track by $index" 
                                   ng-style="{width: _tileSize.w, height: _tileSize.h, backgroundColor: swatches[column]}" 
-                                  ng-click="changeCell($event, rowkey, columnkey)" 
+                                  ng-mousedown="changeCell($event, rowkey, columnkey)" 
                                   ng-right-click="changeCell($event, rowkey, columnkey)" 
                                   ng-mouseover="changeCell($event, rowkey, columnkey)"></td>
                             </tr>

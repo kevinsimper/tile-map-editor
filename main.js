@@ -94,8 +94,8 @@ tileEditor.controller('interfaceCtrl', ['$scope', function($scope){
   $scope.generate();
 
   $scope.changeCell = function($event, row, column) {
-    // console.log(isDown, $event)
-    if($event.type == 'click' || isDown){
+    console.log(isDown, $event)
+    if($event.type == 'mousedown' || isDown){
       $scope.data[row][column] = parseInt($scope.current);
     }
     if($event.type == 'contextmenu' || rightIsDown){
