@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="tileEditor">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tile Map Editor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div ng-controller="interfaceCtrl">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="collapse navbar-collapse">
+                        <form action="" class="navbar-form">
+                            <div class="form-group">
+                                Width: <input type="text" ng-model="tileSize.w">
+                                Height: <input type="text" ng-model="tileSize.h">
+                                Map Width: <input type="text" ng-model="mapSize.w">
+                                Map Height: <input type="text" ng-model="mapSize.h">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="mapeditor">
+                            <tr ng-repeat="item in range(mapSize.h) track by $index">
+                                <td ng-repeat="item in range(mapSize.w) track by $index" ng-style="{width: tileSize.w, height: tileSize.h}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            body { padding-top: 70px; }
+            .mapeditor td {
+                border: 1px solid black;
+            }
+        </style>
+        <script src="app/bower_components/underscore/underscore.js"></script>
+        <script src="app/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="app/bower_components/angular/angular.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
